@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Market Dev Portal</title>
+</head>
+<body>
+  <h1>Market Dev Portal</h1>
+  <button onclick="callApi()">Call API</button>
+  <pre id="output"></pre>
+
+  <script>
+    async function callApi() {
+      const res = await fetch("https://TU-BACKEND.up.railway.app/payments", {
+        headers: {
+          "x-api-key": "test_key"
+        }
+      });
+
+      const data = await res.json();
+      document.getElementById("output").innerText =
+        JSON.stringify(data, null, 2);
+    }
+  </script>
+</body>
+</html>
